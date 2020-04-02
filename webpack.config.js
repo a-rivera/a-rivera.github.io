@@ -1,5 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "public/index.html"),
+    filename: "./index.html"
+});
 
 module.exports = {
   entry: "./src/index.js",
@@ -31,5 +36,5 @@ module.exports = {
     watchOptions: { poll: true },
     hotOnly: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [htmlWebpackPlugin]
 };
